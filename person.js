@@ -306,7 +306,7 @@ Terima Kasih.`,
 `Assalamu'alaikum Wr. Wb
 Bismillahirahmanirrahim.
 
-Yth. Bpk. Sato Aji Oraski
+Yth. Bpk. Sapto Aji Oraski
 
 Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami :
 
@@ -314,7 +314,7 @@ Ricid  & Maya
 
 Berikut link undangan kami untuk info lengkap dari acara bisa kunjungi :
 
-https://hi.wekita.in/ricid-maya/?to=Bpk.+Sato+Aji+Oraski
+https://hi.wekita.in/ricid-maya/?to=Bpk.+Sapto+Aji+Oraski
 
 Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.
 
@@ -1351,7 +1351,7 @@ Terima Kasih.`,
 `Assalamu'alaikum Wr. Wb
 Bismillahirahmanirrahim.
 
-Yth. Solokhin
+Yth. Solikhin
 
 Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami :
 
@@ -1359,7 +1359,7 @@ Ricid  & Maya
 
 Berikut link undangan kami untuk info lengkap dari acara bisa kunjungi :
 
-https://hi.wekita.in/ricid-maya/?to=Solokhin
+https://hi.wekita.in/ricid-maya/?to=Solikhin
 
 Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.
 
@@ -1766,7 +1766,7 @@ let personNames = [
   'Mas Wasim K.O.C',
   'Bpk. Ketua Oraski',
   'Bpk. Eri Oraski',
-  'Bpk. Sato Aji Oraski',
+  'Bpk. Sapto Aji Oraski',
   'Bpk. Yana Mulyana Oraski',
   'Bpk. Aup Oraski',
   'Bpk. Risman Oraski',
@@ -1821,7 +1821,7 @@ let personNames = [
   'Kang Igun',
   'Mas Budi K.P.K',
   'Mas Tomo',
-  'Solokhin',
+  'Solikhin',
   'Om Dedi Benteng',
   'Robi Darwis',
   'Teh Shinta',
