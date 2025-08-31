@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Invitation</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<body>  
+<div class="container">
+  <button type="button" class="btn btn-primary" id="liveToastBtn" style="display: none;">Show live toast</button>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-body">
+        Invitation dicopy ke clipboard
+      </div>
+    </div>
+  </div>
+
+  <!--  -->
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr>
+            <th scope="row">1</th>
+            <td>Fulan dan Fulana</td>
+            <td>
+              <button type="button" class="btn btn-primary">Copy</button>
+            </td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script src="persons.js"></script>
+<script>
+  const toastTrigger = document.getElementById('liveToastBtn')
+  const toastLiveExample = document.getElementById('liveToast')
+
+  if (toastTrigger) {
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+    toastTrigger.addEventListener('click', () => {
+      toastBootstrap.show()
+    })
+  }
+
+  function copyToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      // Cara modern (https, localhost)
+      return navigator.clipboard.writeText(text).then(() => {
+        // console.log("✅ Teks berhasil dicopy:", text);
+      }).catch(err => {
+        console.error("❌ Gagal copy:", err);
+      });
+    } else {
+      // Cara fallback (untuk http atau browser lama)
+      let textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";  // biar gak kelihatan
+      textArea.style.left = "-9999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        // console.log("✅ Teks berhasil dicopy (fallback):", text);
+      } catch (err) {
+        console.error("❌ Gagal copy (fallback):", err);
+      }
+      document.body.removeChild(textArea);
+    }
+  }
+
+  function template(name) {
+    return `Assalamu'alaikum Wr. Wb
+Bismillahirahmanirrahim.
+
+Yth. ${name}
+
+Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami :
+
+Ricid  & Maya
+
+Berikut link undangan kami untuk info lengkap dari acara bisa kunjungi :
+
+https://hi.wekita.in/ricid-maya/?to=${name.replaceAll(' ', '+')}
+
+Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.
+
+Mohon maaf perihal undangan hanya di bagikan melalui pesan ini. Terima kasih banyak atas perhatiannya.
+
+Wassalamu'alaikum Wr. Wb.
+Terima Kasih`;
+  }
+
+  personNames2.forEach((v, i) => {
+    $('.table tbody').append(`
+      <tr>
+        <input type="hidden" value="${v}" id="invitation-${i}">
+        <th scope="row">${i + 1}</th>
+        <td>${v}</td>
+        <td>
+          <button 
+            type="button" 
+            class="btn btn-primary btn-copy" 
+            data-id="${i}" 
+            data-name="${v}"
+          >Copy</button>
+        </td>
+      </tr>
+    `);
+  });
+
+  $('.btn-copy').click(function () {
+    copyToClipboard(template($(this).attr('data-name')));
+    $('#liveToastBtn').click();
+  });
+</script>
+</body>
+</html>
